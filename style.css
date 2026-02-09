@@ -36,7 +36,26 @@ h1 {
     color: #4a1e1e;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+}
 
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% { opacity: 0.6; }
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
 .chocolate-wrapper {
     position: relative;
     width: 600px;
