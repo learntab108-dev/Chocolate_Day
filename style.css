@@ -209,7 +209,7 @@ h1 {
 
 /* Diagonal Cadbury text with enhanced embossing */
 .piece::after {
-    content: 'Kunafa';
+    content: 'Cadbury';
     position: absolute;
     top: 50%;
     left: 50%;
