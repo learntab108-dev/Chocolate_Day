@@ -12,10 +12,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const DAILY_LIMIT = 2; // 2 full chocolate bars
     const TOTAL_PIECES = 15; // Total pieces in one chocolate bar
 
+    // Typewriter heading
+    const text = "Happy Chocolate Day, Himanshi 🍫❤️";
+    const heading = document.querySelector(".animated-heading");
+    let i = 0;
+    
+    function typeWriter() {
+        if (i < text.length) {
+            heading.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 60);
+        }
+    }
+    typeWriter();
+
+
     // Initialize the chocolate tracking system
     function initDailyLimit() {
         const today = new Date().toDateString();
         const storedDate = localStorage.getItem('chocolateDate');
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7000);
+    }
+    
+    setInterval(createHeart, 800);
+
         
         // Reset counts if it's a new day
         localStorage.setItem('piecesEaten', '0');
@@ -105,11 +134,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const content = document.createElement('div');
         content.className = 'celebration-content';
         content.innerHTML = `
-            <h2>${getRandomMessage('barCompleted')}</h2>
-            <p>You've enjoyed every bit of chocolate!</p>
-            <button class="restart-btn" onclick="location.reload()">Have Another Chocolate? 🍫</button>
+            <h2>For you, Himanshi ❤️</h2>
+            <p>
+                Just like this chocolate,<br>
+                every piece of my day is sweeter because of you.
+            </p>
+            <button class="restart-btn" onclick="location.reload()">
+                One more? 🍫
+            </button>
         `;
-        
+
         overlay.appendChild(content);
         document.querySelector('.chocolate-wrapper').appendChild(overlay);
     }
